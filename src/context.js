@@ -25,6 +25,20 @@ class RoomProvider extends Component {
             let response = await Client.getEntries({
                 content_type: "espaceHerms",
             });
+
+            let rooms = this.formatData(response.items);
+            let featuredRooms = rooms.filter(room => room.featured === true);
+            let maxPrice = Math.max(...rooms.map(item => item.price));
+            let maxSize = Math.max(...rooms.map(item => item.surface));
+            this.setState({
+                rooms,
+                featuredRooms,
+                sortedRooms: rooms,
+                loading: false,
+                price: maxPrice,
+                maxPrice,
+                maxSize,
+            });
             console.log(response);
         } catch (error) {
             console.log(error);
@@ -33,6 +47,18 @@ class RoomProvider extends Component {
 
     componentDidMount() {
         this.getData();
+    }
+
+    formatData(items) {
+        console.log(items);
+
+        let tempItems = items.map(item => {
+            let id = item.sys.id;
+            let images = item.fields.images.map(image => image.fields.file.url);
+            let room = { ...item.fields, images, id };
+            return room;
+        });
+        return tempItems;
     }
 
     render() {
