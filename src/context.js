@@ -39,7 +39,6 @@ class RoomProvider extends Component {
                 maxPrice,
                 maxSize,
             });
-            console.log(response);
         } catch (error) {
             console.log(error);
         }
@@ -50,8 +49,6 @@ class RoomProvider extends Component {
     }
 
     formatData(items) {
-        console.log(items);
-
         let tempItems = items.map(item => {
             let id = item.sys.id;
             let images = item.fields.images.map(image => image.fields.file.url);

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { MdLocalPhone } from "react-icons/md";
 import { AiOutlineMail } from "react-icons/ai";
 import { AiOutlineHome } from "react-icons/ai";
-import { FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
     return (

@@ -110,7 +110,7 @@ h6 {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0.75rem 0 2rem;
+    padding: 1rem 0 0;
     background: var(--offwhite);
     z-index: 1;
 }
@@ -150,6 +150,7 @@ h6 {
 .nav-links-main li {
     list-style: none;
 }
+
 .nav-links-main a:hover {
     color: var(--primaryColor);
 }
@@ -178,16 +179,17 @@ h6 {
     justify-content: space-between;
     margin-bottom: 2.5rem;
 }
-
-.footer-top-contact li {
-    list-style: none;
-}
 .footer-top-left-contact {
     font-size: 17px;
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 1.25rem;
 }
+
+.footer-top-contact li {
+    list-style: none;
+}
+
 .footer-top-contact li {
     position: relative;
     padding-left: 35px;
@@ -348,7 +350,7 @@ h6 {
     padding: 5rem 0;
 }
 .services {
-    background: var(--darkGrey);
+    background: var(--offwhite);
     text-align: center;
 }
 .services-center {
@@ -359,7 +361,7 @@ h6 {
     grid-row-gap: 2rem;
     grid-column-gap: 50px;
 }
-.service span {
+.service img {
     display: inline-block;
     color: var(--primaryColor);
     font-size: 2.5rem;
