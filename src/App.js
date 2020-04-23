@@ -18,13 +18,13 @@ export default function App() {
             <Navbar></Navbar>
             <Switch>
                 <Route exact path='/' component={Home}></Route>
-                {/*} <Route exact path='/salles' component={Rooms}></Route>
+                {/*} <Route exact path='/salles' component={Rooms}></Route>*/}
                 <Route
                     exact
                     path='/salles/:slug'
                     component={SingleRoom}></Route>
-                <Route exact path='/contact' component={Contact}></Route>
-    <Route component={Error}></Route>*/}
+                {/* <Route exact path='/contact' component={Contact}></Route>
+                <Route component={Error}></Route> */}
             </Switch>
             <Footer></Footer>
         </>

@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<svg width="40" height="33" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <g fill="none" fill-rule="evenodd" id="Collection">
+   <g id="System-Icons" stroke="#1abda0" transform="translate(-428.000000, -1651.000000)">
+    <g id="disposition/salle-seche/salle-en-U" transform="translate(428.000000, 1647.000000)">
+     <g id="Group" transform="translate(0.000000, 4.000000)">
+      <circle cx="3" cy="5" fill="#1cedc7" fill-rule="nonzero" id="Oval-2" r="2.5"/>
+      <circle cx="37" cy="5" fill="#1cedc7" fill-rule="nonzero" id="Oval-2-Copy-5" r="2.5"/>
+      <circle cx="3" cy="13" fill="#1cedc7" fill-rule="nonzero" id="Oval-2-Copy-2" r="2.5"/>
+      <circle cx="37" cy="13" fill="#1cedc7" fill-rule="nonzero" id="Oval-2-Copy-6" r="2.5"/>
+      <circle cx="3" cy="21" fill="#1cedc7" fill-rule="nonzero" id="Oval-2-Copy-3" r="2.5"/>
+      <circle cx="37" cy="21" fill="#1cedc7" fill-rule="nonzero" id="Oval-2-Copy-7" r="2.5"/>
+      <circle cx="12" cy="30" fill="#1cedc7" fill-rule="nonzero" id="Oval-2-Copy-4" r="2.5"/>
+      <circle cx="20" cy="30" fill="#1cedc7" fill-rule="nonzero" id="Oval-2-Copy" r="2.5"/>
+      <circle cx="28" cy="30" fill="#1cedc7" fill-rule="nonzero" id="Oval-2-Copy-8" r="2.5"/>
+      <path d="m32.5,23.490796l0,-20.981592c0,-0.682518 -0.056081,-0.966112 -0.208039,-1.25025c-0.127707,-0.238792 -0.312123,-0.423208 -0.550915,-0.550915c-0.284138,-0.151958 -0.567732,-0.208039 -1.25025,-0.208039l-0.981592,0c-0.682518,0 -0.966112,0.056081 -1.25025,0.208039c-0.238792,0.127707 -0.423208,0.312123 -0.550915,0.550915c-0.151958,0.284138 -0.208039,0.567732 -0.208039,1.25025l0,17.990796l-15,0l0,-17.990796c0,-0.682518 -0.056081,-0.966112 -0.208039,-1.25025c-0.127708,-0.238792 -0.312123,-0.423208 -0.550915,-0.550915c-0.284138,-0.151958 -0.567732,-0.208039 -1.25025,-0.208039l-0.981592,0c-0.682518,0 -0.966112,0.056081 -1.25025,0.208039c-0.238792,0.127707 -0.423208,0.312123 -0.550915,0.550915c-0.151958,0.284138 -0.208039,0.567732 -0.208039,1.25025l0,20.981592c0,0.682518 0.056081,0.966112 0.208039,1.25025c0.127707,0.238792 0.312123,0.423208 0.550915,0.550915c0.284138,0.151958 0.567732,0.208039 1.25025,0.208039l20.981592,0c0.682518,0 0.966112,-0.056081 1.25025,-0.208039c0.238792,-0.127707 0.423208,-0.312123 0.550915,-0.550915c0.151958,-0.284138 0.208039,-0.567732 0.208039,-1.25025z" fill="#1abda0" fill-rule="nonzero" id="Combined-Shape"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>

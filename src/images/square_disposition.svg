@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg width="38" height="28" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <g class="layer">
+  <title>Layer 1</title>
+  <g fill="none" fill-rule="evenodd" id="Collection">
+   <g id="System-Icons" stroke="#1abda0" transform="translate(-501.000000, -1653.000000)">
+    <g id="disposition rectangulaire" transform="translate(500.000000, 1647.000000)">
+     <g id="Group-Copy" transform="translate(1.000000, 6.000000)">
+      <circle cx="11" cy="25" fill="#1cedc7" fill-rule="nonzero" id="chair-2" r="2.5"/>
+      <circle cx="11" cy="3" fill="#1cedc7" fill-rule="nonzero" id="chair-3" r="2.5"/>
+      <circle cx="19" cy="25" fill="#1cedc7" fill-rule="nonzero" id="chair-4" r="2.5"/>
+      <circle cx="19" cy="3" fill="#1cedc7" fill-rule="nonzero" id="chair-5" r="2.5"/>
+      <circle cx="27" cy="25" fill="#1cedc7" fill-rule="nonzero" id="chair-6" r="2.5"/>
+      <circle cx="27" cy="3" fill="#1cedc7" fill-rule="nonzero" id="chair-7" r="2.5"/>
+      <circle cx="35" cy="14" fill="#1cedc7" fill-rule="nonzero" id="chair-8" r="2.5"/>
+      <circle cx="3" cy="14" fill="#1cedc7" fill-rule="nonzero" id="chair-9" r="2.5"/>
+      <path d="m9.56389,7.5c-0.73734,0 -1.01687,0.05398 -1.30494,0.20804c-0.23879,0.12771 -0.4232,0.31212 -0.55091,0.55091c-0.15406,0.28807 -0.20804,0.5676 -0.20804,1.30494l0,8.87222c0,0.73734 0.05398,1.01687 0.20804,1.30494c0.12771,0.23879 0.31212,0.4232 0.55091,0.55091c0.28807,0.15406 0.5676,0.20804 1.30494,0.20804l18.87222,0c0.73734,0 1.01687,-0.05398 1.30494,-0.20804c0.23879,-0.12771 0.4232,-0.31212 0.55091,-0.55091c0.15406,-0.28807 0.20804,-0.5676 0.20804,-1.30494l0,-8.87222c0,-0.73734 -0.05398,-1.01687 -0.20804,-1.30494c-0.12771,-0.23879 -0.31212,-0.4232 -0.55091,-0.55091c-0.28807,-0.15406 -0.5676,-0.20804 -1.30494,-0.20804l-18.87222,0z" fill="#1abda0" fill-rule="nonzero" id="Rectangle"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
