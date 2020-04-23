@@ -10,7 +10,7 @@ export default function () {
         <>
             <Hero hero='roomsHero'>
                 <Banner title='Nos Salles' subtitle=''>
-                    <Link to='/' className='btn-primary'>
+                    <Link to='/' className='btn-primary-main'>
                         Retour
                     </Link>
                 </Banner>
