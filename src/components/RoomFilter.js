@@ -76,7 +76,7 @@ export default function RoomFilter({ rooms }) {
                     {/*End select type */}
                     {/*Room Price*/}
                     <div className='form-group'>
-                        <label htmlFor='price'>room price ${price}</label>
+                        <label htmlFor='price'>Prix{price} €</label>
                         <input
                             type='range'
                             name='price'

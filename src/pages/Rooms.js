@@ -9,9 +9,9 @@ export default function () {
     return (
         <>
             <Hero hero='roomsHero'>
-                <Banner title='Our rooms' subtitle=''>
+                <Banner title='Nos Salles' subtitle=''>
                     <Link to='/' className='btn-primary'>
-                        return home
+                        Retour
                     </Link>
                 </Banner>
             </Hero>
