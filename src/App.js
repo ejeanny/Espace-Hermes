@@ -18,7 +18,7 @@ export default function App() {
             <Navbar></Navbar>
             <Switch>
                 <Route exact path='/' component={Home}></Route>
-                {/*} <Route exact path='/salles' component={Rooms}></Route>*/}
+                <Route exact path='/salles' component={Rooms}></Route>
                 <Route
                     exact
                     path='/salles/:slug'

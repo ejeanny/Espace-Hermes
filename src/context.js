@@ -11,13 +11,18 @@ class RoomProvider extends Component {
         loading: true,
         u: false,
         theater: false,
-        class: false,
+        classPosition: false,
         square: false,
+        whiteBoard: false,
+        wifi: false,
+        handicap: false,
+        location: "all",
         price: 0,
         minPrice: 0,
         maxPrice: 0,
         minSize: 0,
         maxSize: 0,
+        capacity: 1,
     };
 
     getData = async () => {
@@ -31,7 +36,7 @@ class RoomProvider extends Component {
 
             let featuredRooms = rooms.filter(room => room.featured === true);
             let maxPrice = Math.max(...rooms.map(item => item.price));
-            let maxSize = Math.max(...rooms.map(item => item.surface));
+            let maxSize = Math.max(...rooms.map(item => item.theaterCapacity));
             this.setState({
                 rooms,
                 featuredRooms,
@@ -66,12 +71,118 @@ class RoomProvider extends Component {
         return tempItems;
     }
 
+    handleChange = event => {
+        const target = event.target;
+        const name = target.type === "radio" ? target.id : target.name;
+        const value =
+            target.type === "checkbox" ? target.checked : target.value;
+
+        console.log(event.target.id);
+
+        this.setState(
+            {
+                [name]: value,
+            },
+            this.filterRooms
+        );
+    };
+
+    filterRooms = () => {
+        let {
+            rooms,
+            capacity,
+            classPosition,
+            paperBoard,
+            price,
+            projector,
+            square,
+            theater,
+            u,
+            whiteBoard,
+            wifi,
+            handicap,
+            location,
+        } = this.state;
+
+        //all the rooms
+        let tempRooms = [...rooms];
+        // console.log(location);
+        if (location !== "all") {
+            tempRooms = tempRooms.filter(room => room.location === location);
+        }
+
+        //transform capacity value
+        capacity = parseInt(capacity);
+
+        //filter by price
+        tempRooms = tempRooms.filter(room => room.price <= price);
+
+        //filter by positioning & positioning capacity
+        if (classPosition) {
+            tempRooms = tempRooms.filter(room => room.classPosition === true);
+            if (!theater) {
+                tempRooms = tempRooms.filter(
+                    room => room.classRoomCapacity >= capacity
+                );
+            }
+        }
+        if (square) {
+            tempRooms = tempRooms.filter(room => room.square === true);
+            if (!theater && !classPosition) {
+                tempRooms = tempRooms.filter(
+                    room => room.squareCapacity >= capacity
+                );
+            }
+        }
+        if (theater) {
+            tempRooms = tempRooms.filter(room => room.theater === true);
+            tempRooms = tempRooms.filter(
+                room => room.theaterCapacity >= capacity
+            );
+        }
+        if (u) {
+            tempRooms = tempRooms.filter(room => room.theater === true);
+            if (!theater && !square && !classPosition) {
+                tempRooms = tempRooms.filter(
+                    room => room.uCapacity >= capacity
+                );
+            }
+        }
+        // if (!theater && !square && !classPosition && !u) {
+        //     tempRooms = tempRooms.filter(
+        //         room => room.theaterCapacity >= capacity
+        //     );
+        // }
+        //filter by equipement
+        if (whiteBoard) {
+            tempRooms = tempRooms.filter(room => room.whiteBoard === true);
+        }
+        if (projector) {
+            tempRooms = tempRooms.filter(room => room.projector === true);
+        }
+        if (paperBoard) {
+            tempRooms = tempRooms.filter(room => room.paperBoard === true);
+        }
+        if (wifi) {
+            tempRooms = tempRooms.filter(room => room.wifi === true);
+        }
+        if (handicap) {
+            tempRooms = tempRooms.filter(room => room.handicap === true);
+        }
+
+        //change state
+        this.setState({
+            sortedRooms: tempRooms,
+        });
+    };
+
     render() {
         return (
             <RoomContext.Provider
                 value={{
                     ...this.state,
                     getRoom: this.getRoom,
+                    handleChange: this.handleChange,
                 }}>
                 {this.props.children}
             </RoomContext.Provider>

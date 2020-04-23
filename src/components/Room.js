@@ -16,7 +16,7 @@ export default function Room({ room }) {
                 <Link
                     to={`/salles/${slug}`}
                     className='btn-primary-main room-link'>
-                    En vedette
+                    Voir
                 </Link>
             </div>
             <p className='room-info'>{name}</p>
