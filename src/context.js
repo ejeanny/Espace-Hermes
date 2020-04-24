@@ -8,7 +8,9 @@ class RoomProvider extends Component {
         rooms: [],
         sortedRooms: [],
         featuredRooms: [],
+        lastSelected: "",
         loading: true,
+        opened: false,
         u: false,
         theater: false,
         classPosition: false,
@@ -16,7 +18,7 @@ class RoomProvider extends Component {
         whiteBoard: false,
         wifi: false,
         handicap: false,
-        location: "all",
+        location: "Toutes",
         price: 0,
         minPrice: 0,
         maxPrice: 0,
@@ -29,6 +31,7 @@ class RoomProvider extends Component {
         try {
             let response = await Client.getEntries({
                 content_type: "espaceHerms",
+                order: "-fields.price",
             });
 
             let rooms = this.formatData(response.items);
@@ -73,11 +76,9 @@ class RoomProvider extends Component {
 
     handleChange = event => {
         const target = event.target;
-        const name = target.type === "radio" ? target.id : target.name;
+        const name = target.name;
         const value =
             target.type === "checkbox" ? target.checked : target.value;
-
-        console.log(event.target.id);
 
         this.setState(
             {
@@ -103,11 +104,12 @@ class RoomProvider extends Component {
             handicap,
             location,
         } = this.state;
-
+        console.log(u);
+        console.log(theater);
         //all the rooms
         let tempRooms = [...rooms];
         // console.log(location);
-        if (location !== "all") {
+        if (location !== "Toutes") {
             tempRooms = tempRooms.filter(room => room.location === location);
         }
 
@@ -141,7 +143,7 @@ class RoomProvider extends Component {
             );
         }
         if (u) {
-            tempRooms = tempRooms.filter(room => room.theater === true);
+            tempRooms = tempRooms.filter(room => room.u === true);
             if (!theater && !square && !classPosition) {
                 tempRooms = tempRooms.filter(
                     room => room.uCapacity >= capacity
@@ -176,6 +178,39 @@ class RoomProvider extends Component {
         });
     };
 
+    toggleBox = () => {
+        const { opened } = this.state;
+        this.setState({
+            opened: !opened,
+        });
+    };
+
+    handleRadio = event => {
+        const target = event.target;
+        const name = target.id;
+        const value = target.checked;
+        const lastSelected = this.state.lastSelected;
+
+        if (lastSelected === "") {
+            this.setState(
+                {
+                    lastSelected: name,
+                    [name]: value,
+                },
+                this.filterRooms
+            );
+        } else {
+            this.setState(
+                {
+                    [name]: value,
+                    [lastSelected]: false,
+                    lastSelected: name,
+                },
+                this.filterRooms
+            );
+        }
+    };
+
     render() {
         return (
             <RoomContext.Provider
@@ -183,6 +218,8 @@ class RoomProvider extends Component {
                     ...this.state,
                     getRoom: this.getRoom,
                     handleChange: this.handleChange,
+                    toggleBox: this.toggleBox,
+                    handleRadio: this.handleRadio,
                 }}>
                 {this.props.children}
             </RoomContext.Provider>

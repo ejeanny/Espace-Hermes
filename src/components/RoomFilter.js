@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { RoomContext } from "../context";
 import Title from "./Title";
+import MoreFilterComponent from "./MoreFilterComponent";
 // import Checkbox from "react-native-modest-checkbox";
 // /****** Image *******/
 // import squareImg from "../images/square_disposition.svg";
@@ -17,28 +18,20 @@ export default function RoomFilter({ rooms }) {
     const context = useContext(RoomContext);
     const {
         handleChange,
+        toggleBox,
         minPrice,
         maxPrice,
         name,
         description,
         surface,
-        classPosition,
         classRoomCapacity,
         images,
-        option,
         paperBoard,
         price,
-        projector,
-        square,
         squareCapacity,
         stare,
-        theater,
         theaterCapacity,
-        u,
         uCapacity,
-        whiteBoard,
-        wifi,
-        handicap,
         location,
     } = context;
 
@@ -46,7 +39,7 @@ export default function RoomFilter({ rooms }) {
     let locations = getUnique(rooms, "location");
 
     //add all location
-    locations = ["all", ...locations];
+    locations = ["Toutes", ...locations];
     //map to JSX
     locations = locations.map((item, index) => {
         return (
@@ -88,6 +81,9 @@ export default function RoomFilter({ rooms }) {
                             className='form-control'></input>
                     </div>
                     {/*End Room Price*/}
+                </form>
+                <form className='filter-form'>
+                    <MoreFilterComponent title='Plus de filtre' />
                 </form>
             </section>
         </>
