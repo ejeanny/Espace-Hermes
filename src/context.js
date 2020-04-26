@@ -271,7 +271,7 @@ class RoomProvider extends Component {
                     handleChange: this.handleChange,
                     // toggleBox: this.toggleBox,
                     // handleRadio: this.handleRadio,
-                    // handlePagination: this.handlePagination,
+                    handlePagination: this.handlePagination,
                     // getPageRange: this.getPageRange,
                 }}>
                 {this.props.children}
