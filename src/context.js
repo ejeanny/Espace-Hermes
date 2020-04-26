@@ -8,9 +8,10 @@ class RoomProvider extends Component {
         rooms: [],
         sortedRooms: [],
         featuredRooms: [],
+        currentPage: 1,
+        roomPerPage: 12,
         lastSelected: "",
         loading: true,
-        opened: false,
         u: false,
         theater: false,
         classPosition: false,
@@ -18,6 +19,7 @@ class RoomProvider extends Component {
         whiteBoard: false,
         wifi: false,
         handicap: false,
+        paperBoard: false,
         location: "Toutes",
         price: 0,
         minPrice: 0,
@@ -34,9 +36,8 @@ class RoomProvider extends Component {
                 order: "-fields.price",
             });
 
+            console.log(this.state.roomPerPage);
             let rooms = this.formatData(response.items);
-            console.log(rooms);
-
             let featuredRooms = rooms.filter(room => room.featured === true);
             let maxPrice = Math.max(...rooms.map(item => item.price));
             let maxSize = Math.max(...rooms.map(item => item.theaterCapacity));
@@ -60,7 +61,39 @@ class RoomProvider extends Component {
         return room;
     };
 
+    // getPageRange = totalPageNumber => {
+    //     const currentPage = this.state.currentPage;
+    //     var minPageRange = currentPage - this.state.pageRange;
+    //     var maxPageRange = currentPage + this.state.pageRange;
+    //     if (minPageRange < 1) minPageRange = 1;
+    //     if (maxPageRange > totalPageNumber) minPageRange = totalPageNumber;
+    //     const pageNumbers = [];
+    //     switch (true) {
+    //         case currentPage > totalPageNumber:
+    //             over = true;
+    //             break;
+    //         case maxPageRange > totalPageNumber:
+    //             maxPageRange = totalPageNumber;
+    //             minPageRange = maxPageRange - this.state.pageRange;
+    //             break;
+    //     }
+
+    //     for (let i = minPageRange; i <= maxPageRange; i++) {
+    //         pageNumbers.push(i);
+    //     }
+    //     //this.displayPageRange(pageNumbers, totalPage);
+    //     return pageNumbers;
+    // };
+
     componentDidMount() {
+        if (
+            window.matchMedia("(max-width: 1231px)").matches &&
+            window.matchMedia("(min-width: 967px)").matches
+        ) {
+            this.setState({ roomPerPage: 9 });
+        } else if (window.matchMedia("(max-width: 966px)").matches) {
+            this.setState({ roomPerPage: 6 });
+        }
         this.getData();
     }
 
@@ -104,8 +137,6 @@ class RoomProvider extends Component {
             handicap,
             location,
         } = this.state;
-        console.log(u);
-        console.log(theater);
         //all the rooms
         let tempRooms = [...rooms];
         // console.log(location);
@@ -119,7 +150,7 @@ class RoomProvider extends Component {
         //filter by price
         tempRooms = tempRooms.filter(room => room.price <= price);
 
-        //filter by positioning & positioning capacity
+        // filter by positioning & positioning capacity
         if (classPosition) {
             tempRooms = tempRooms.filter(room => room.classPosition === true);
             if (!theater) {
@@ -150,6 +181,7 @@ class RoomProvider extends Component {
                 );
             }
         }
+
         // if (!theater && !square && !classPosition && !u) {
         //     tempRooms = tempRooms.filter(
         //         room => room.theaterCapacity >= capacity
@@ -187,28 +219,47 @@ class RoomProvider extends Component {
 
     handleRadio = event => {
         const target = event.target;
-        const name = target.id;
-        const value = target.checked;
-        const lastSelected = this.state.lastSelected;
+        if (target.type === "radio") {
+            const name = target.id;
+            const value = target.checked;
+            const lastSelected = this.state.lastSelected;
 
-        if (lastSelected === "") {
-            this.setState(
-                {
-                    lastSelected: name,
-                    [name]: value,
-                },
-                this.filterRooms
-            );
+            if (lastSelected === "") {
+                this.setState(
+                    {
+                        lastSelected: name,
+                        [name]: value,
+                    },
+                    this.filterRooms
+                );
+            } else {
+                this.setState(
+                    {
+                        [name]: value,
+                        [lastSelected]: false,
+                        lastSelected: name,
+                    },
+                    this.filterRooms
+                );
+            }
         } else {
+            event.preventDefault();
             this.setState(
                 {
-                    [name]: value,
-                    [lastSelected]: false,
-                    lastSelected: name,
+                    u: false,
+                    theater: false,
+                    classPosition: false,
+                    square: false,
+                    lastSelected: "",
                 },
                 this.filterRooms
             );
         }
+    };
+    handlePagination = (event, value) => {
+        this.setState({
+            currentPage: value,
+        });
     };
 
     render() {
@@ -218,8 +269,10 @@ class RoomProvider extends Component {
                     ...this.state,
                     getRoom: this.getRoom,
                     handleChange: this.handleChange,
-                    toggleBox: this.toggleBox,
-                    handleRadio: this.handleRadio,
+                    // toggleBox: this.toggleBox,
+                    // handleRadio: this.handleRadio,
+                    // handlePagination: this.handlePagination,
+                    // getPageRange: this.getPageRange,
                 }}>
                 {this.props.children}
             </RoomContext.Provider>

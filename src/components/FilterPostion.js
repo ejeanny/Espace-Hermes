@@ -13,44 +13,34 @@ import { RoomContext } from "../context";
 export default function FilterPostion() {
     const context = useContext(RoomContext);
 
-    const {
-        u,
-        square,
-        handleRadio,
-        classPosition,
-        theater,
-        wifi,
-        whiteBoard,
-        projector,
-        handicap,
-    } = context;
+    const { u, square, handleChange, classPosition, theater } = context;
 
     return (
         <>
-            <input type='radio' id='u' onClick={handleRadio} name='position' />
             <input
-                type='radio'
+                type='checkbox'
                 id='square'
-                name='position'
-                onClick={handleRadio}
+                onClick={handleChange}
+                name='square'
             />
+            <input type='checkbox' id='u' onClick={handleChange} name='u' />
             <input
-                type='radio'
+                type='checkbox'
                 id='classPosition'
-                name='position'
-                onClick={handleRadio}
+                onClick={handleChange}
+                name='classPosition'
             />
             <input
-                type='radio'
+                type='checkbox'
                 id='theater'
-                name='position'
-                onClick={handleRadio}
+                onClick={handleChange}
+                name='theater'
             />
             <span>
                 <label htmlFor='square'>
                     <RadioText grey={square}>
                         <Tooltip title='Salle en carré' placement='top' arrow>
-                            <img src={squareImg} />
+                            <img src={squareImg} alt='' />
                         </Tooltip>
                     </RadioText>
                 </label>
@@ -59,7 +49,7 @@ export default function FilterPostion() {
                 <label htmlFor='u'>
                     <RadioText grey={u}>
                         <Tooltip title='Salle en U' placement='top' arrow>
-                            <img src={uImg} />
+                            <img src={uImg} alt='' />
                         </Tooltip>
                     </RadioText>
                 </label>
@@ -68,7 +58,7 @@ export default function FilterPostion() {
                 <label htmlFor='classPosition'>
                     <RadioText grey={classPosition}>
                         <Tooltip title='Salle de classe' placement='top' arrow>
-                            <img src={classRoomImg} />
+                            <img src={classRoomImg} alt='' />
                         </Tooltip>
                     </RadioText>
                 </label>
@@ -77,7 +67,7 @@ export default function FilterPostion() {
                 <label htmlFor='theater'>
                     <RadioText grey={theater}>
                         <Tooltip title='en théatre' placement='top' arrow>
-                            <img src={theaterImg} />
+                            <img src={theaterImg} alt='' />
                         </Tooltip>
                     </RadioText>
                 </label>

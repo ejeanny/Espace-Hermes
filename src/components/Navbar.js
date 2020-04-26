@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import logo from "../images/logo.png";
 import { Link } from "react-router-dom";
-import { MdLocalPhone } from "react-icons/md";
-import { AiOutlineMail } from "react-icons/ai";
+// import { MdLocalPhone } from "react-icons/md";
+// import { AiOutlineMail } from "react-icons/ai";
 
 import { FaAlignRight } from "react-icons/fa";
 

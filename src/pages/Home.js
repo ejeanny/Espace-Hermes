@@ -14,7 +14,7 @@ export default function Home() {
                 <Banner
                     title='Un cadre de travail agéable'
                     subtitle='pour tous vos evenement professionnel'>
-                    <Link to='/rooms' className='btn-primary-main'>
+                    <Link to='/salles' className='btn-primary-main'>
                         Nos salles
                     </Link>
                 </Banner>

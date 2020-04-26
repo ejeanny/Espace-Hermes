@@ -6,8 +6,9 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import SingleRoom from "./pages/SingleRoom";
-import Contact from "./pages/Contact";
-import Error from "./pages/Error";
+import ScrollToTop from "react-router-scroll-top";
+// import Contact from "./pages/Contact";
+// import Error from "./pages/Error";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -17,14 +18,16 @@ export default function App() {
         <>
             <Navbar></Navbar>
             <Switch>
-                <Route exact path='/' component={Home}></Route>
-                <Route exact path='/salles' component={Rooms}></Route>
-                <Route
-                    exact
-                    path='/salles/:slug'
-                    component={SingleRoom}></Route>
-                {/* <Route exact path='/contact' component={Contact}></Route>
+                <ScrollToTop>
+                    <Route exact path='/' component={Home}></Route>
+                    <Route exact path='/salles' component={Rooms}></Route>
+                    <Route
+                        exact
+                        path='/salles/:slug'
+                        component={SingleRoom}></Route>
+                    {/* <Route exact path='/contact' component={Contact}></Route>
                 <Route component={Error}></Route> */}
+                </ScrollToTop>
             </Switch>
             <Footer></Footer>
         </>

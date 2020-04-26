@@ -3,12 +3,7 @@ import { useContext } from "react";
 import { RoomContext } from "../context";
 import Title from "./Title";
 import MoreFilterComponent from "./MoreFilterComponent";
-// import Checkbox from "react-native-modest-checkbox";
-// /****** Image *******/
-// import squareImg from "../images/square_disposition.svg";
-// import classRoomImg from "../images/classroom_disposition.svg";
-// import uImg from "../images/u_disposition.svg";
-// import theaterImg from "../images/theater_disposition.svg";
+import DispositionFilterComponent from "./DispositionFilterComponent";
 
 const getUnique = (items, value) => {
     return [...new Set(items.map(items => items[value]))];
@@ -16,24 +11,7 @@ const getUnique = (items, value) => {
 
 export default function RoomFilter({ rooms }) {
     const context = useContext(RoomContext);
-    const {
-        handleChange,
-        toggleBox,
-        minPrice,
-        maxPrice,
-        name,
-        description,
-        surface,
-        classRoomCapacity,
-        images,
-        paperBoard,
-        price,
-        squareCapacity,
-        stare,
-        theaterCapacity,
-        uCapacity,
-        location,
-    } = context;
+    const { handleChange, minPrice, maxPrice, price, location } = context;
 
     //get unique location
     let locations = getUnique(rooms, "location");
@@ -78,12 +56,13 @@ export default function RoomFilter({ rooms }) {
                             max={maxPrice}
                             value={price}
                             onChange={handleChange}
-                            className='form-control'></input>
+                            className='form-control slider'></input>
                     </div>
                     {/*End Room Price*/}
                 </form>
                 <form className='filter-form'>
-                    <MoreFilterComponent title='Plus de filtre' />
+                    <DispositionFilterComponent />
+                    <MoreFilterComponent />
                 </form>
             </section>
         </>

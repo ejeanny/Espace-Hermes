@@ -36,7 +36,7 @@ export default class About extends Component {
 
                         return (
                             <article key={index} className='service'>
-                                <img src={item.icon} />
+                                <img src={item.icon} alt='' />
                                 <h6>{item.title}</h6>
                                 <p>{item.info}</p>
                             </article>

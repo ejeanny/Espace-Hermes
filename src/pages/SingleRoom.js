@@ -14,8 +14,6 @@ import { Link } from "react-router-dom";
 import { RoomContext } from "../context";
 
 /******** Components ********/
-import Hero from "../components/Hero";
-import Baner from "../components/Banner";
 import Banner from "../components/Banner";
 import StyledHero from "../components/StyledHero";
 
@@ -82,7 +80,7 @@ export default class SingleRoom extends Component {
             wifi,
             handicap,
         } = room;
-        const imgHover = this.state.hover;
+        //const imgHover = this.state.hover;
         const [mainImg, ...defaultImg] = images;
         console.log(uCapacity);
         return (
@@ -146,7 +144,7 @@ export default class SingleRoom extends Component {
                                             title='Table rectangulaire'
                                             placement='top'
                                             arrow>
-                                            <img src={squareImg} />
+                                            <img src={squareImg} alt='' />
                                         </Tooltip>
                                     </HoverText>
                                 </td>
@@ -156,7 +154,7 @@ export default class SingleRoom extends Component {
                                             title='Salle en U'
                                             placement='top'
                                             arrow>
-                                            <img src={uImg} />
+                                            <img src={uImg} alt='' />
                                         </Tooltip>
                                     </HoverText>
                                 </td>
@@ -166,7 +164,7 @@ export default class SingleRoom extends Component {
                                             title='Salle de classe'
                                             placement='top'
                                             arrow>
-                                            <img src={classRoomImg} />
+                                            <img src={classRoomImg} alt='' />
                                         </Tooltip>
                                     </HoverText>
                                 </td>
@@ -176,7 +174,7 @@ export default class SingleRoom extends Component {
                                             title='en théatre'
                                             placement='top'
                                             arrow>
-                                            <img src={theaterImg} />
+                                            <img src={theaterImg} alt='' />
                                         </Tooltip>
                                     </HoverText>
                                 </td>
@@ -210,84 +208,6 @@ export default class SingleRoom extends Component {
                             </tr>
                         </tbody>
                     </table>
-                    {/* <div className='row'>
-                            <div className='col-12 col-md-2 single-room-capacity'>
-                                <h6>Dispositions possibles</h6>
-                            </div>
-                            <div className='col-12 col-md-10'>
-                               
-                                <div className='justify-content-start d-flex '>
-                                    <div className='single-room-capacity text-center'>
-                                        <HoverText grey={square}>
-                                            <Tooltip
-                                                title='Table rectangulaire'
-                                                placement='top'
-                                                arrow>
-                                                <img src={squareImg} />
-                                            </Tooltip>
-                                        </HoverText>
-                                    </div>
-                                    <div className='single-room-capacity text-center'>
-                                        <HoverText grey={u}>
-                                            <Tooltip
-                                                title='Salle en U'
-                                                placement='top'
-                                                arrow>
-                                                <img src={uImg} />
-                                            </Tooltip>
-                                        </HoverText>
-                                    </div>
-                                    <div className='single-room-capacity  text-center'>
-                                        <HoverText grey={classPosition}>
-                                            <Tooltip
-                                                title='Salle de classe'
-                                                placement='top'
-                                                arrow>
-                                                <img src={classRoomImg} />
-                                            </Tooltip>
-                                        </HoverText>
-                                    </div>
-                                    <div className='single-room-capacity  text-center'>
-                                        <HoverText grey={theater}>
-                                            <Tooltip
-                                                title='en théatre'
-                                                placement='top'
-                                                arrow>
-                                                <img src={theaterImg} />
-                                            </Tooltip>
-                                        </HoverText>
-                                    </div>
-                                    <hr className='hr-sm my-3'></hr>
-                                </div>
-                            </div>
-                        </div>
-                        <div className='row'>
-                            <div className='col-12 col-md-2 single-room-capacity'>
-                                <h6>Nombre de participant maximum</h6>
-                            </div>
-                            <div className='justify-content-start d-flex'>
-                                <div className='single-room-capacity'>
-                                    <p>{square ? `${squareCapacity}` : "-"}</p>
-                                </div>
-                                <div className='single-room-capacity text-center '>
-                                    <p>{u ? `${uCapacity}` : "-"}</p>
-                                </div>
-                                <div className='single-room-capacity text-center '>
-                                    <p>
-                                        {classPosition
-                                            ? `${classRoomCapacity}`
-                                            : "-"}
-                                    </p>
-                                </div>
-                                <div className='single-room-capacity text-center '>
-                                    <p>
-                                        {theater ? `${theaterCapacity}` : "-"}
-                                    </p>
-                                </div>
-                            </div>
-                        </div> */}
-                    {/* </div> */}
-                    {/* </div> */}
                 </section>
                 <section className='extras'>
                     <div className='container'>
@@ -322,7 +242,7 @@ export default class SingleRoom extends Component {
                                 </div>
                                 <div
                                     className={
-                                        !projector ? "hide-info" : "show-info"
+                                        !wifi ? "hide-info" : "show-info"
                                     }>
                                     <div className='equipement row'>
                                         <Tooltip
