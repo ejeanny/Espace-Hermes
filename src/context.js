@@ -207,15 +207,16 @@ class RoomProvider extends Component {
         //change state
         this.setState({
             sortedRooms: tempRooms,
+            currentPage: 1,
         });
     };
 
-    toggleBox = () => {
-        const { opened } = this.state;
-        this.setState({
-            opened: !opened,
-        });
-    };
+    // toggleBox = () => {
+    //     const { opened } = this.state;
+    //     this.setState({
+    //         opened: !opened,
+    //     });
+    // };
 
     handleRadio = event => {
         const target = event.target;
